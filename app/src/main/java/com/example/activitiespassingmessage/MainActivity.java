@@ -11,6 +11,9 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +32,38 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        //Dimitri Johannes code
+        Button submitButton = (Button) findViewById(R.id.submitButton);
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Cast text objects
+                EditText MessageEditText = (EditText) findViewById(R.id.MessageEditText);
+                TextView resultTextView = (TextView) findViewById(R.id.resultTextView);
+                String message = MessageEditText.getText() + ".";
+
+                //Get text results and display in userTextView
+                if(!(MessageEditText.getText().toString().isEmpty()))
+                {
+
+                    resultTextView.setText(message);
+                }
+
+                else
+                {
+                    //Report error
+                    resultTextView.setText("Error: No message entered!!!");
+                }
+
+                //Set text fields to null
+                MessageEditText.setText("");
+            }
+        });
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
