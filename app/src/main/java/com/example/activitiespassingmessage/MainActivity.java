@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,7 +49,10 @@ public class MainActivity extends AppCompatActivity {
                 if(!(MessageEditText.getText().toString().isEmpty()))
                 {
 
-                    resultTextView.setText(message);
+                    //resultTextView.setText(message);
+
+                    //Open Activity2
+                    Activity2();
                 }
 
                 else
@@ -58,12 +62,16 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 //Set text fields to null
-                MessageEditText.setText("");
+                //MessageEditText.setText("");
             }
         });
     }
 
-
+    public void Activity2()
+    {
+        Intent intent = new Intent(this, Activity2.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
