@@ -9,10 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LastActivity"></activity>
-        <activity android:name=".Activity4" />
-        <activity android:name=".Activity3" />
-        <activity android:name=".Activity2" />
+        <activity android:name=".LastActivity"
+            android:parentActivityName=".Activity4"></activity>
+        <activity android:name=".Activity4"
+            android:parentActivityName=".Activity3"/>
+        <activity android:name=".Activity3"
+            android:parentActivityName=".Activity2"/>
+        <activity android:name=".Activity2"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

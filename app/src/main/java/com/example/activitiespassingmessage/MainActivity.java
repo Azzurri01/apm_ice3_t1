@@ -17,6 +17,11 @@ import android.widget.TextView;
 import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText MessageEditText;
+    private TextView resultTextView;
+    private TextView confirmation;
+    public String message;
+    public static final String EXTRA_TEXT = "com.example.activitiespassingmessage";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Intent intent = getIntent();
+        message = intent.getStringExtra(LastActivity.EXTRA_TEXT);
+        confirmation = (TextView) findViewById(R.id.resultTextView);
+        confirmation.setText(message);
+
         //Dimitri Johannes code
         Button submitButton = (Button) findViewById(R.id.submitButton);
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -41,9 +51,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Cast text objects
-                EditText MessageEditText = (EditText) findViewById(R.id.MessageEditText);
-                TextView resultTextView = (TextView) findViewById(R.id.resultTextView);
-                String message = MessageEditText.getText() + ".";
+                MessageEditText = (EditText) findViewById(R.id.MessageEditText);
+                resultTextView = (TextView) findViewById(R.id.resultTextView);
+                message = MessageEditText.getText() + ".";
+
 
                 //Get text results and display in userTextView
                 if(!(MessageEditText.getText().toString().isEmpty()))
@@ -69,7 +80,15 @@ public class MainActivity extends AppCompatActivity {
 
     public void Activity2()
     {
+        //Capture text and store in string
+        String textBox = MessageEditText.getText().toString();
+
+        //Declare intent
         Intent intent = new Intent(this, Activity2.class);
+
+        intent.putExtra(EXTRA_TEXT, textBox);
+
+        //Start Activity2
         startActivity(intent);
     }
 
