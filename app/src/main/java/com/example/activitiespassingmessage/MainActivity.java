@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     public String message;
     public static final String EXTRA_TEXT = "com.example.activitiespassingmessage";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             Toolbar toolbar = findViewById(R.id.toolbar);
             setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
+            FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -53,14 +54,13 @@ public class MainActivity extends AppCompatActivity {
                 MessageEditText = (EditText) findViewById(R.id.MessageEditText);
                 resultTextView = (TextView) findViewById(R.id.resultTextView);
                 message = MessageEditText.getText() + ".";
-
+                Activity2();
 
                 //Get text results and display in userTextView
                 /*if(!(MessageEditText.getText().toString().isEmpty()))
                 {
 
                     //resultTextView.setText(message);
-
                     //Open Activity2
                     Activity2();
                 }
